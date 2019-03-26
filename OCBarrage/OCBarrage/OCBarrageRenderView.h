@@ -37,7 +37,8 @@ typedef NS_ENUM(NSInteger, OCBarrageRenderStatus) {
 @property (nonatomic, strong, readonly) NSMutableArray<OCBarrageCell *> *idleCells;
 @property (nonatomic, assign) OCBarrageRenderPositionStyle renderPositionStyle;
 @property (nonatomic, assign, readonly) OCBarrageRenderStatus renderStatus;
-
+@property (nonatomic,assign) CGFloat maxHeight;
+@property (nonatomic,assign) CGFloat maxWidth;
 - (nullable OCBarrageCell *)dequeueReusableCellWithClass:(Class)barrageCellClass;
 - (void)fireBarrageCell:(OCBarrageCell *)barrageCell;
 

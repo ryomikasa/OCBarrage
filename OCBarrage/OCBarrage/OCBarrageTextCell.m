@@ -40,7 +40,15 @@
 
 - (void)layoutContentSubviews {
     CGRect textFrame = [self.textDescriptor.attributedText.string boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:[self.textDescriptor.attributedText attributesAtIndex:0 effectiveRange:NULL] context:nil];
+    
     self.textLabel.frame = textFrame;
+    
+//    [self.textLabel sizeToFit];
+////    
+//    self.textLabel.frame = CGRectMake(0, 0, self.textLabel.frame.size.width, 50);
+//
+//    self.backgroundColor = [UIColor redColor];
+//    self.bounds = self.textLabel.bounds;
 }
 
 - (void)convertContentToImage {

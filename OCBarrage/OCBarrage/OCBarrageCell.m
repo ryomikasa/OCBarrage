@@ -48,11 +48,30 @@
         if (maxY > height) {
             height = maxY;
         }
-        CGFloat maxX = CGRectGetMaxX(sublayer.frame);
-        if (maxX > width) {
-            width = maxX;
-        }
+//        CGFloat maxX = CGRectGetMaxX(sublayer.frame);
+//        if (maxX > width) {
+//            width = maxX;
+//        }
     }
+    
+    UIFont *font = [_barrageDescriptor valueForKey:@"textFont"];
+    NSString *str = [_barrageDescriptor valueForKey:@"text"];
+    
+    
+    CGSize rect;
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineBreakMode = NSLineBreakByCharWrapping;
+    NSDictionary *dic = @{NSFontAttributeName : font, NSParagraphStyleAttributeName : style};
+    rect = [str boundingRectWithSize:CGSizeMake(10000, height)
+                             options:NSStringDrawingTruncatesLastVisibleLine |
+            NSStringDrawingUsesLineFragmentOrigin |
+            NSStringDrawingUsesFontLeading
+                          attributes:dic
+                             context:nil].size;
+    
+    
+    width = rect.width;
+    
     
     if (width == 0 || height == 0) {
         CGImageRef content = (__bridge CGImageRef)self.layer.contents;

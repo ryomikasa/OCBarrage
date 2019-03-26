@@ -327,7 +327,24 @@
                 break;
             default: {
                 CGFloat renderViewHeight = CGRectGetHeight(self.bounds);
-                CGFloat cellHeight = CGRectGetHeight(barrageCell.bounds);
+//                CGFloat cellHeight = CGRectGetHeight(barrageCell.bounds);
+                
+                CGFloat cellHeight = CGRectGetHeight(barrageCell.frame);
+                if (cellHeight< self.maxHeight) {
+                    cellHeight = self.maxHeight;
+                }else{
+                    self.maxHeight =cellHeight;
+                }
+                
+                
+                
+                CGFloat cellWidth = CGRectGetWidth(barrageCell.frame);
+                if (cellWidth< self.maxWidth) {
+                    cellWidth = self.maxWidth;
+                }else{
+                    self.maxWidth =cellWidth;
+                }
+
                 int trackCount = floorf(renderViewHeight/cellHeight);
                 int trackIndex = arc4random_uniform(trackCount);//用户改变行高(比如弹幕文字大小不会引起显示bug, 因为虽然是同一个类, 但是trackCount变小了, 所以不会出现trackIndex*cellHeight超出屏幕边界的情况)
                 
@@ -362,18 +379,19 @@
                 dispatch_semaphore_signal(_trackInfoLock);
                 
                 barrageCell.trackIndex = trackIndex;
-                cellFrame.origin.y = trackIndex*cellHeight;
+                cellFrame.origin.y = trackIndex* floor(cellHeight);
+                cellFrame.origin.x = cellWidth;
             }
                 break;
         }
     }
     
-    if (CGRectGetMaxY(cellFrame) > CGRectGetHeight(self.bounds)) {
-        cellFrame.origin.y = 0.0; //超过底部, 回到顶部
-    } else if (cellFrame.origin.y  < 0) {
-        cellFrame.origin.y = 0.0;
-    }
-    
+//    if (CGRectGetMaxY(cellFrame) > CGRectGetHeight(self.bounds)) {
+//        cellFrame.origin.y = 0.0; //超过底部, 回到顶部
+//    } else if (cellFrame.origin.y  < 0) {
+//        cellFrame.origin.y = 0.0;
+//    }
+//    
     return cellFrame;
 }
 

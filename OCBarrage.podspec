@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "OCBarrage"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "OCBarrage is a high performance barrage render engine."
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     OCBarrage is a high performance barrage render engine. Lightweight, scalable, highly custom animated, ultra high performance, simple and easy to use
     }
 
-  s.homepage     = "https://github.com/w1531724247/OCBarrage"
+  s.homepage     = "https://github.com/ryomikasa/OCBarrage"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "lifeichao" => "lifeichao@qmtv.com" }
+  s.author             = { "ceecountdown" => "ceecountdown@tzedu.com" }
   # Or just: s.author    = "lifeichao"
   # s.authors            = { "lifeichao" => "lifeichao@qmtv.com" }
   s.social_media_url   = "http://www.jianshu.com/u/8da52b2cc318"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/w1531724247/OCBarrage.git", :tag => "1.0.5"}
+  s.source       = { :git => "https://github.com/ryomikasa/OCBarrage", :tag => "1.0.6"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
